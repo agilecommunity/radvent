@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161117133632) do
+ActiveRecord::Schema.define(version: 20161128142108) do
 
   create_table "advent_calendar_items", force: true do |t|
     t.string   "user_name"
@@ -42,11 +42,11 @@ ActiveRecord::Schema.define(version: 20161117133632) do
 
   create_table "items", force: true do |t|
     t.string   "title"
-    t.string   "body"
     t.integer  "advent_calendar_item_id"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "comments_count",          default: 0, null: false
+    t.text     "body"
   end
 
   add_index "items", ["advent_calendar_item_id"], name: "index_items_on_advent_calendar_item_id", unique: true
